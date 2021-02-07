@@ -14,6 +14,7 @@ import { login } from '../actions/auth';
 import { PrivateRoute } from './PrivateRoute';
 import { PublicRoute } from './PublicRoute';
 import { startLoadNotes } from '../actions/notes';
+import { LoadingPage } from '../components/auth/LoadingPage';
 
 export const AppRouter = () => {
 
@@ -28,7 +29,7 @@ export const AppRouter = () => {
 
             //Si el obj user tiene algo? pregunta si existe el uid
             if ( user?.uid ){
-                dispatch( login( user.uid, user.displayName ) );
+                dispatch( login( user.uid, user.displayName, user.photoURL ) );
                 setIsLoggedIn( true );
 
                 dispatch( startLoadNotes( user.uid ) );
@@ -43,7 +44,8 @@ export const AppRouter = () => {
 
     if ( checking ) {
         return (
-            <h1> Wait...</h1> //Hacer comoponente de loading
+            //<h1> Wait...</h1> //Hacer comoponente de loading
+            <LoadingPage />
         )
     }
 

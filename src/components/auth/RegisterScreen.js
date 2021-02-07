@@ -55,7 +55,7 @@ export const RegisterScreen = () => {
     return (
     
         <>
-            <h3 className="auth__title">Register</h3>
+            <h3 className="auth__title">Sign Up</h3>
 
             <form onSubmit={ handleRegister }>
 
@@ -112,7 +112,7 @@ export const RegisterScreen = () => {
                     className="btn btn-primary btn-block mb-5 mt-1"
                     disabled ={ loading }
                 >
-                    Register
+                    Sign Up
                 </button>
                 
 

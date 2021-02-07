@@ -1,4 +1,4 @@
-import swal from 'sweetalert2';
+import Swal from 'sweetalert2';
 
 import { db } from '../firebase/firebase-config';
 import { fileUpload } from '../helpers/fileUpload';
@@ -68,11 +68,11 @@ export const startSaveNote = ( note ) => {
         try {
             await db.doc(`${ uid }/journal/notes/${ note.id }`).update( noteToFirestore );
         } catch( err ) {
-            swal.fire('Error', err, 'Error');
+            Swal.fire('Error', err, 'Error');
         }
         
         dispatch( refreshNote( note.id, note) );
-        swal.fire('Saved', note.title, 'success');
+        Swal.fire('Saved', note.title, 'success');
     }
 }
 
@@ -92,21 +92,34 @@ export const startUploading = ( file ) => {
 
         const { active:activeNote } = getState().notes;
 
-        swal.fire({
+        Swal.fire({
             title: 'Uploading...',
             text: 'Please wait...',
             showConfirmButton: false,
             willOpen: () => {
-                swal.showLoading();
+                Swal.showLoading();
             }
         });
 
-        const fileUrl = await fileUpload( file );
-        activeNote.url = fileUrl;
+        const allowedExtensions = /(.jpg|.jpeg|.png|.gif)$/i;
 
-        dispatch( startSaveNote( activeNote ) );
+        if(!allowedExtensions.exec(file.name)){
 
-        swal.close();
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'the file must be an image (jpg, jpeg, png, gif)'
+              });
+
+        }else {
+
+            const fileUrl = await fileUpload( file );
+            activeNote.url = fileUrl;
+    
+            dispatch( startSaveNote( activeNote ) );
+    
+            Swal.close();
+        }
     }
 }
 
@@ -116,19 +129,22 @@ export const startDeleting = ( id ) => {
         const { uid } = getState().auth;
         await db.doc(`${ uid }/journal/notes/${ id }`).delete();
 
-        swal.fire({
+        Swal.fire({
             title: 'Do you want to deleted?',
             showDenyButton: true,
             showCancelButton: true,
             confirmButtonText: `Delete`,
             denyButtonText: `Don't Delete`,
+
           }).then((result) => {
-            /* Read more about isConfirmed, isDenied below */
             if (result.isConfirmed) {
-              swal.fire('Deleted', '' , 'success')
+
+              Swal.fire('Deleted', '' , 'success')
               dispatch( deleteNote(id) );
+
             } else if (result.isDenied) {
-              swal.fire('Not deleted', '', 'info')
+
+              Swal.fire('Not deleted', '', 'info')
             }
           })
     }

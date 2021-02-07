@@ -27,24 +27,34 @@ export const JournalEntry = ( { id, date, title, body, url } ) => {
         >
 
             {
-                url && 
-                <div 
-                    className="journal__entry-picture"
-                    style={{
-                        backgroundSize: 'cover',
-                        backgroundImage: `url( ${ url} )`
-                    }}
-                >
+                (url) ? 
+                    <div 
+                        className="journal__entry-picture"
+                        style={{
+                            backgroundSize: 'cover',
+                            backgroundImage: `url( ${ url } )`
+                        }}
+                    >
+
+                    </div>
+                :
+                    <div 
+                        className="journal__entry-picture"
+                        style={{
+                            backgroundSize: 'cover',
+                            backgroundImage: 'url(https://res.cloudinary.com/pruebasreact/image/upload/v1612721032/nad6d6wp91peiyd8rdq4.png)'
+                        }}
+                    >
 
                 </div>
             }
 
             <div className="journal__entry-boby">
                 <p className="journal__entry-title">
-                    { (title.length > 15) ? `${title.slice(0, 15)}...` : title }
+                    { (title.length > 20) ? `${title.slice(0, 20)}...` : title }
                 </p>
                 <p className="journal__entry-content">
-                    { (body.length > 20) ? `${body.slice(0, 20)}...` : body }    
+                    { (body.length > 30) ? `${body.slice(0, 30)}...` : body }    
                 </p>
             </div>
 

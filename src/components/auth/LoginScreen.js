@@ -32,6 +32,10 @@ export const LoginScreen = () => {
         dispatch( startGoogleLogin() );
     }
 
+    // const handleFacebookLogin = () => {
+    //     dispatch( startFacebookLogin() );
+    // }
+
     const isFormValid = () => {
 
         if ( email.length === 0 ) {
@@ -49,7 +53,7 @@ export const LoginScreen = () => {
 
     return (
         <>
-            <h3 className="auth__title">Login</h3>
+            <h3 className="auth__title">Sign In</h3>
 
             <form onSubmit={ handleLogin }>
 
@@ -87,7 +91,7 @@ export const LoginScreen = () => {
                     className="btn btn-primary btn-block"
                     disabled={ loading }
                 >
-                    Login
+                    Sign In
                 </button>
                 
                 <div className="auth__social-networks">
@@ -104,6 +108,19 @@ export const LoginScreen = () => {
                             <b>Sign in with google</b>
                         </p>
                     </div>
+
+                    {/* <div 
+                        className="facebook-btn"
+                        onClick={ handleFacebookLogin }
+                    >
+                        <div className="facebook-icon-wrapper">
+                            <img className="facebook-icon" src="https://upload.wikimedia.org/wikipedia/commons/c/c2/F_icon.svg" alt="facebook button" />
+                        </div>
+                        <p className="btn-text">
+                            <b>Sign in with Facebook</b>
+                        </p>
+                    </div> */}
+
                 </div>
 
                 <Link 
