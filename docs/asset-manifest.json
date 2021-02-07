@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/JournalApp/static/css/main.e5cb1fd5.chunk.css",
+    "main.js": "/JournalApp/static/js/main.d1a9f2f3.chunk.js",
+    "main.js.map": "/JournalApp/static/js/main.d1a9f2f3.chunk.js.map",
+    "runtime-main.js": "/JournalApp/static/js/runtime-main.0d511aa1.js",
+    "runtime-main.js.map": "/JournalApp/static/js/runtime-main.0d511aa1.js.map",
+    "static/js/2.e80d755a.chunk.js": "/JournalApp/static/js/2.e80d755a.chunk.js",
+    "static/js/2.e80d755a.chunk.js.map": "/JournalApp/static/js/2.e80d755a.chunk.js.map",
+    "index.html": "/JournalApp/index.html",
+    "static/css/main.e5cb1fd5.chunk.css.map": "/JournalApp/static/css/main.e5cb1fd5.chunk.css.map",
+    "static/js/2.e80d755a.chunk.js.LICENSE.txt": "/JournalApp/static/js/2.e80d755a.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.0d511aa1.js",
+    "static/js/2.e80d755a.chunk.js",
+    "static/css/main.e5cb1fd5.chunk.css",
+    "static/js/main.d1a9f2f3.chunk.js"
+  ]
+}
